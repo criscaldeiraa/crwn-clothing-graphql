@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';
 
@@ -12,7 +12,7 @@ import {
   RemoveButton,
 } from './checkout-item.styles';
 
-const CheckoutItem = ({ cartItem }) => {
+const CheckoutItem = memo(({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
   const { clearItemFromCart, addItemToCart, removeItemToCart } =
@@ -37,6 +37,6 @@ const CheckoutItem = ({ cartItem }) => {
       <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
     </CheckoutItemContainer>
   );
-};
+});
 
 export default CheckoutItem;
